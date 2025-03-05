@@ -1,20 +1,34 @@
 package Graph01;
 
+import Algs.WS_algorythm;
 import queue.LIFOQueue;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-
 public class Graph {
     public final String name;
-    private final List<Vertex> vertexList;
+    private List<Vertex> vertexList;
     public Graph(String name){
         this.name = name;
-        this.vertexList = new LinkedList<>();
+        this.vertexList = new ArrayList<>();
     }
     public void addVertex(Vertex node){
         vertexList.add(node);
     }
+
+    public void colorNodes(){
+        WS_algorythm alg = new WS_algorythm();
+        this.vertexList = alg.colorNodes(vertexList);
+    }
+
+    public void printColors(){
+        for(Vertex node : vertexList){
+            System.out.println(node.getName() + " : " + node.getColor());
+        }
+    }
+
+
+    /*
     public List<Vertex> search(){
 
         LIFOQueue<Vertex> LIFOQueue = new LIFOQueue<>();
@@ -40,4 +54,5 @@ public class Graph {
         }
         return newList;
     }
+     */
 }
